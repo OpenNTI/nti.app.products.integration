@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# nti.app.products.integration  documentation build configuration file, created by
+# nti.app.products.integration documentation build configuration file, created by
 # sphinx-quickstart on Thu Jun  8 07:02:25 2017.
 #
 # This file is execfile()d with the current directory set to its
@@ -23,7 +23,7 @@ import os
 import sys
 import pkg_resources
 sys.path.append(os.path.abspath('../src'))
-rqmt = pkg_resources.require('nti.app.products.integration ')[0]
+rqmt = pkg_resources.require('nti.app.products.integration')[0]
 
 # -- General configuration ------------------------------------------------
 
@@ -54,7 +54,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'nti.app.products.integration '
+project = u'nti.app.products.integration'
 copyright = u'2018, NextThought'
 author = u'NextThought'
 
@@ -135,7 +135,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'ntiappproductsintegration .tex', u'nti.app.products.integration  Documentation',
+    (master_doc, 'ntiappproductsintegration .tex', u'nti.app.products.integration Documentation',
      u'NextThought', 'manual'),
 ]
 
@@ -145,7 +145,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'ntiappproductsintegration ', u'nti.app.products.integration  Documentation',
+    (master_doc, 'ntiappproductsintegration ', u'nti.app.products.integration Documentation',
      [author], 1)
 ]
 
@@ -156,7 +156,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'ntiappproductsintegration ', u'nti.app.products.integration  Documentation',
+    (master_doc, 'ntiappproductsintegration ', u'nti.app.products.integration Documentation',
      author, 'ntiappproductsintegration ', 'One line description of project.',
      'Miscellaneous'),
 ]
@@ -171,9 +171,9 @@ intersphinx_mapping = {
 }
 
 extlinks = {
-    'issue': ('https://github.com/NextThought/nti.app.products.integration /issues/%s',
+    'issue': ('https://github.com/NextThought/nti.app.products.integration/issues/%s',
               'issue #'),
-    'pr': ('https://github.com/NextThought/nti.app.products.integration /pull/%s',
+    'pr': ('https://github.com/NextThought/nti.app.products.integration/pull/%s',
            'pull request #')}
 
 autodoc_default_flags = ['members', 'show-inheritance']
