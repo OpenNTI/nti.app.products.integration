@@ -1,6 +1,6 @@
-==========================
+==============================
  nti.app.products.integration
-==========================
+==============================
 
 .. image:: https://travis-ci.org/NextThought/nti.app.products.integration.svg?branch=master
     :target: https://travis-ci.org/NextThought/nti.app.products.integration
