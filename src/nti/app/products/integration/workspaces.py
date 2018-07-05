@@ -26,7 +26,6 @@ from nti.appserver.workspaces.interfaces import IUserService
 from nti.app.products.integration import INTEGRATION_WORKSPACE
 
 from nti.app.products.integration.interfaces import IIntegrationWorkspace
-from nti.app.products.integration.interfaces import IAuthorizedIntegration
 from nti.app.products.integration.interfaces import IIntegrationCollection
 from nti.app.products.integration.interfaces import IIntegrationCollectionProvider
 
@@ -67,7 +66,10 @@ class _IntegrationCollection(Contained):
         result = []
         for integration_provider in component.getAllUtilitiesRegisteredFor(IIntegrationCollectionProvider):
             integration_iter = integration_provider.get_collection_iter()
-            result.extend(integration_iter)
+            for integration in integration_iter:
+                if not getattr(integration, '__parent__', ''):
+                    integration.__parent__ = self
+                result.append(integration)
         return result
 
     def __len__(self):

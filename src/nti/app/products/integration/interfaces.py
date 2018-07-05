@@ -12,13 +12,15 @@ from __future__ import absolute_import
 
 from zope import interface
 
+from zope.location.interfaces import IContained
+
 from nti.appserver.workspaces.interfaces import IWorkspace
 from nti.appserver.workspaces.interfaces import IContainerCollection
 
 from nti.schema.field import DecodingValidTextLine as ValidTextLine
 
 
-class IIntegration(interface.Interface):
+class IIntegration(IContained):
     """
     Contains integration information with third-party systems.
     """

@@ -12,13 +12,9 @@ from zope import interface
 
 from zope.cachedescriptors.property import Lazy
 
-from zope.container.contained import Contained
-
 from nti.app.products.integration.interfaces import IIntegration
 from nti.app.products.integration.interfaces import IAuthorizedIntegration
 from nti.app.products.integration.interfaces import IOAuthAuthorizedIntegration
-
-from nti.dublincore.time_mixins import PersistentCreatedAndModifiedTimeObject
 
 from nti.externalization.representation import WithRepr
 
@@ -35,15 +31,10 @@ logger = __import__('logging').getLogger(__name__)
 
 @WithRepr
 @interface.implementer(IIntegration)
-class AbstractIntegration(PersistentCreatedAndModifiedTimeObject,
-                          Contained,
-                          SchemaConfigured):
+class AbstractIntegration(SchemaConfigured):
     createDirectFieldProperties(IIntegration)
 
     __external_can_create__ = False
-
-    __parent__ = None
-    __name__ = None
 
     creator = None
     NTIID = alias('ntiid')
