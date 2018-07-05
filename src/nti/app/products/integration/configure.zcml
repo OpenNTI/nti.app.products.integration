@@ -10,4 +10,19 @@
 	<include package="zope.component" />
 	<include package="zope.security" />
 
+    <!-- Workspaces -->
+    <!-- A subscriber for enumeration -->
+    <subscriber factory=".workspaces.IntegrationWorkspace"
+                provides=".interfaces.IIntegrationWorkspace" />
+
+    <adapter name="Integration"
+             for="nti.coremetadata.interfaces.IUser
+                  pyramid.interfaces.IRequest"
+             factory=".workspaces.IntegrationPathAdapter"
+             provides="zope.traversing.interfaces.IPathAdapter" />
+
+    <!-- And an adapter for direct access -->
+    <adapter factory=".workspaces.IntegrationWorkspace"
+             provides=".interfaces.IIntegrationWorkspace" />
+
 </configure>
