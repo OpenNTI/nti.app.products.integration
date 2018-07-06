@@ -75,6 +75,15 @@ class _IntegrationCollection(Contained):
     def __len__(self):
         return len(self.container)
 
+    def __getitem__(self, key):
+        """
+        Make us traversable to integration.
+        """
+        for i in self.integrations:
+            if i.__name__ == key:
+                return i
+        raise KeyError(key)
+
     @Lazy
     def container(self):
         container = LastModifiedCopyingUserList()
