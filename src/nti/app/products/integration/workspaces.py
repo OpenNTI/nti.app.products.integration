@@ -67,8 +67,9 @@ class _IntegrationCollection(Contained):
         for integration_provider in component.getAllUtilitiesRegisteredFor(IIntegrationCollectionProvider):
             integration_iter = integration_provider.get_collection_iter()
             for integration in integration_iter:
-                if not getattr(integration, '__parent__', ''):
-                    integration.__parent__ = self
+                # We always want to take lineage here to allow
+                # fetching beneath certain contexts.
+                integration.__parent__ = self
                 result.append(integration)
         return result
 

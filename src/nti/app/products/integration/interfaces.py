@@ -46,11 +46,6 @@ class IOAuthAuthorizedIntegration(IIntegration):
     refresh_token = ValidTextLine(title=u'The refresh token',
                                   required=True)
 
-    def get_access_token(request):
-        """
-        Return the access token associated with this authorized integration.
-        """
-
     refresh_token.setTaggedValue('_ext_excluded_out', True)
 
 
