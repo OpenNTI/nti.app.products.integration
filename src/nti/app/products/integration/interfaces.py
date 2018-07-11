@@ -17,6 +17,9 @@ from zope.location.interfaces import IContained
 from nti.appserver.workspaces.interfaces import IWorkspace
 from nti.appserver.workspaces.interfaces import IContainerCollection
 
+from nti.coremetadata.interfaces import IShouldHaveTraversablePath
+
+from nti.schema.field import ValidDatetime
 from nti.schema.field import DecodingValidTextLine as ValidTextLine
 
 
@@ -32,13 +35,16 @@ class IIntegration(IContained):
     description = ValidTextLine(title=u"Integration description", required=False)
 
 
-class IAuthorizedIntegration(IIntegration):
+class IAuthorizedIntegration(IIntegration, IShouldHaveTraversablePath):
     """
     An :class:`IIntegration` object that has been authorized.
     """
 
+    authorization_date = ValidDatetime(title=u"Integration auth date",
+                                       required=True)
 
-class IOAuthAuthorizedIntegration(IIntegration):
+
+class IOAuthAuthorizedIntegration(IAuthorizedIntegration):
     """
     An :class:`IIntegration` object that has been oath authorized.
     """

@@ -34,7 +34,7 @@ logger = __import__('logging').getLogger(__name__)
 class AbstractIntegration(SchemaConfigured):
     createDirectFieldProperties(IIntegration)
 
-    __external_can_create__ = False
+    __external_can_create__ = True
 
     creator = None
     NTIID = alias('ntiid')
