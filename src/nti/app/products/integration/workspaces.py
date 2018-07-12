@@ -41,7 +41,7 @@ logger = __import__('logging').getLogger(__name__)
 
 
 @interface.implementer(IIntegrationCollection)
-class _IntegrationCollection(Contained):
+class IntegrationCollection(Contained):
     """
     Returns all the :class:`IIntegration` objects.
     """
@@ -116,7 +116,7 @@ class _IntegrationWorkspace(object):
         """
         The returned collections are sorted by name.
         """
-        return (_IntegrationCollection(self),)
+        return (IntegrationCollection(self),)
 
     @property
     def links(self):

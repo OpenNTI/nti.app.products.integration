@@ -25,4 +25,8 @@
     <adapter factory=".workspaces.IntegrationWorkspace"
              provides=".interfaces.IIntegrationWorkspace" />
 
+    <adapter for="nti.coremetadata.interfaces.IUser"
+             factory=".adapters.user_integration_collection"
+             provides=".interfaces.IIntegrationCollection" />
+
 </configure>
