@@ -49,10 +49,11 @@ class IOAuthAuthorizedIntegration(IAuthorizedIntegration):
     An :class:`IIntegration` object that has been oath authorized.
     """
 
-    refresh_token = ValidTextLine(title=u'The refresh token',
-                                  required=True)
+    def get_refresh_token():
+        pass
 
-    refresh_token.setTaggedValue('_ext_excluded_out', True)
+    def get_access_token():
+        pass
 
 
 class IIntegrationWorkspace(IWorkspace):
