@@ -34,7 +34,7 @@ class TestWorkspace(ApplicationLayerTest):
     def test_workspace(self):
 
         with mock_dataserver.mock_db_trans(self.ds):
-            user = self._create_user(username=self.extra_environ_default_user)
+            user = self._create_user()
             service = IUserService(user)
 
             workspaces = service.workspaces
