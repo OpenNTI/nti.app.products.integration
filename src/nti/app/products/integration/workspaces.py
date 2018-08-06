@@ -21,8 +21,6 @@ from zope.location.interfaces import IContained
 
 from zope.traversing.interfaces import IPathAdapter
 
-from nti.appserver.pyramid_authorization import has_permission
-
 from nti.appserver.workspaces.interfaces import IUserService
 
 from nti.app.products.integration import INTEGRATION_WORKSPACE
@@ -30,8 +28,6 @@ from nti.app.products.integration import INTEGRATION_WORKSPACE
 from nti.app.products.integration.interfaces import IIntegrationWorkspace
 from nti.app.products.integration.interfaces import IIntegrationCollection
 from nti.app.products.integration.interfaces import IIntegrationCollectionProvider
-
-from nti.dataserver.authorization import ACT_CONTENT_EDIT
 
 from nti.dataserver.authorization import is_admin_or_content_admin_or_site_admin
 
@@ -139,8 +135,7 @@ class _IntegrationWorkspace(object):
         return len(self.collections)
 
     def predicate(self):
-        return has_permission(ACT_CONTENT_EDIT, self) \
-            or is_admin_or_content_admin_or_site_admin(self.user)
+        return is_admin_or_content_admin_or_site_admin(self.user)
 
 
 @interface.implementer(IIntegrationWorkspace)
